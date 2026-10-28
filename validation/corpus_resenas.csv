@@ -1,0 +1,51 @@
+id,texto,platillo_esperado,polaridad_esperada,tipo_caso
+1,"los tacos de res braseada estuvieron increíbles y la carne suavecita","Tacos de Res Braseada",positivo,DIRECTO_POSITIVO
+2,"los tacos de res braseada estaban fríos y la tortilla rota","Tacos de Res Braseada",negativo,DIRECTO_NEGATIVO
+3,"pedí tacos de res braseada pero el sabor era regular nada del otro mundo","Tacos de Res Braseada",neutral,DIRECTO_NEUTRAL
+4,"el ribeye a la parrilla estaba en su punto exacto muy jugoso","Ribeye a la Parrilla",positivo,DIRECTO_POSITIVO
+5,"el ribeye a la parrilla estaba duro y frío una decepción total","Ribeye a la Parrilla",negativo,DIRECTO_NEGATIVO
+6,"la carne del ribeye a la parrilla tenía demasiada grasa","Ribeye a la Parrilla",negativo,DIRECTO_NEGATIVO
+7,"la sopa azteca llegó hirviendo deliciosa y con mucho aguacate","Sopa Azteca",positivo,DIRECTO_POSITIVO
+8,"la sopa azteca estaba fría y excesivamente salada","Sopa Azteca",negativo,DIRECTO_NEGATIVO
+9,"la sopa azteca estaba tibia sin más","Sopa Azteca",neutral,DIRECTO_NEUTRAL
+10,"el guacamole rústico super fresco y los totopos recién hechos","Guacamole Rústico",positivo,DIRECTO_POSITIVO
+11,"el guacamole rústico estaba pasado y amargo","Guacamole Rústico",negativo,DIRECTO_NEGATIVO
+12,"el guacamole rústico tenía poca sal","Guacamole Rústico",negativo,DIRECTO_NEGATIVO
+13,"el salmón al ajillo es una maravilla dorado por fuera y suave por dentro","Salmón al Ajillo",positivo,DIRECTO_POSITIVO
+14,"el salmón al ajillo estaba crudo en el centro y muy grasoso","Salmón al Ajillo",negativo,DIRECTO_NEGATIVO
+15,"el salmón al ajillo estaba normal a secas","Salmón al Ajillo",neutral,DIRECTO_NEUTRAL
+16,"el pastel tres leches es el mejor postre que he probado porción grande","Pastel Tres Leches",positivo,DIRECTO_POSITIVO
+17,"el pastel tres leches estaba seco le faltaba salsa","Pastel Tres Leches",negativo,DIRECTO_NEGATIVO
+18,"el pastel tres leches muy empalagoso","Pastel Tres Leches",negativo,DIRECTO_NEGATIVO
+19,"el agua de horchata artesanal súper refrescante y con buena canela","Agua de Horchata Artesanal",positivo,DIRECTO_POSITIVO
+20,"el agua de horchata artesanal sabía a pura agua rebajada","Agua de Horchata Artesanal",negativo,DIRECTO_NEGATIVO
+21,"el agua de horchata artesanal un poco dulce pero pasable","Agua de Horchata Artesanal",neutral,DIRECTO_NEUTRAL
+22,"pedí dos tacos que no venían en el menú de especiales","Sin Clasificar",neutral,NEGACION_EXCLUSION
+23,"queríamos ribeye a la parrilla pero no era el corte que pedimos","Sin Clasificar",negativo,NEGACION_EXCLUSION
+24,"nos trajeron una sopa azteca que no pedimos a la mesa","Sin Clasificar",negativo,NEGACION_EXCLUSION
+25,"pedí salmón al ajillo pero no estaba disponible en cocina","Sin Clasificar",negativo,NEGACION_EXCLUSION
+26,"el postre no era pastel tres leches sino flan napolitano","Sin Clasificar",neutral,NEGACION_EXCLUSION
+27,"la pasta alfredo con camarones estaba exquisita","Sin Clasificar",positivo,FUERA_CATALOGO
+28,"las enchiladas verdes no tenían nada de pollo y estaban ácidas","Sin Clasificar",negativo,FUERA_CATALOGO
+29,"la hamburguesa con papas estaba muy rica","Sin Clasificar",positivo,FUERA_CATALOGO
+30,"el corte tomahawk estaba sobrecocido y caro","Sin Clasificar",negativo,FUERA_CATALOGO
+31,"el café americano estaba caliente y aromático","Sin Clasificar",positivo,FUERA_CATALOGO
+32,"los tacos de res braseada excelentes pero el guacamole rústico le faltó sal","Tacos de Res Braseada",positivo,MULTIPLATILLO
+33,"la sopa azteca fría pero el ribeye a la parrilla quedó exquisito","Ribeye a la Parrilla",positivo,MULTIPLATILLO
+34,"el salmón al ajillo delicioso y el pastel tres leches espectacular","Salmón al Ajillo",positivo,MULTIPLATILLO
+35,"el lugar está muy bonito y la música agradable","Sin Clasificar",positivo,SIN_PLATILLO
+36,"el mesero tardó 40 minutos en traer la cuenta pésimo servicio","Sin Clasificar",negativo,SIN_PLATILLO
+37,"las instalaciones limpias y el valet parking muy rápido","Sin Clasificar",positivo,SIN_PLATILLO
+38,"el estacionamiento estaba lleno y los baños sucios","Sin Clasificar",negativo,SIN_PLATILLO
+39,"buena relación calidad precio en general","Sin Clasificar",positivo,SIN_PLATILLO
+40,"tacos de res braseada muy ricos y agua de horchata artesanal fresca","Tacos de Res Braseada",positivo,MULTIPLATILLO
+41,"el ribeye a la parrilla llegó a buena temperatura y muy suave","Ribeye a la Parrilla",positivo,DIRECTO_POSITIVO
+42,"la sopa azteca deliciosa pero la porción chica","Sopa Azteca",positivo,DIRECTO_POSITIVO
+43,"el guacamole rústico vino sin totopos","Guacamole Rústico",negativo,DIRECTO_NEGATIVO
+44,"salmón al ajillo bien cocinado con finas láminas de ajo crujientes","Salmón al Ajillo",positivo,DIRECTO_POSITIVO
+45,"el pastel tres leches es una porción generosa para compartir","Pastel Tres Leches",positivo,DIRECTO_POSITIVO
+46,"agua de horchata artesanal con hielo picado perfecta para el calor","Agua de Horchata Artesanal",positivo,DIRECTO_POSITIVO
+47,"el ribeye a la parrilla llegó quemado por fuera","Ribeye a la Parrilla",negativo,DIRECTO_NEGATIVO
+48,"la sopa azteca no tenía queso ni crema","Sopa Azteca",negativo,DIRECTO_NEGATIVO
+49,"tacos de res braseada con salsa bien picosa muy recomendados","Tacos de Res Braseada",positivo,DIRECTO_POSITIVO
+50,"ambiente ruidoso pero la comida en general bien","Sin Clasificar",neutral,SIN_PLATILLO

@@ -1,0 +1,384 @@
+=====================================================================================
+PASO 1: RESETEO TOTAL Y LIMPIEZA DE LA BASE DE DATOS
+=====================================================================================
+Status Reset: 200
+Respuesta Reset: {'status': 'success', 'message': 'Base de datos reseteada exitosamente. Catßlogo restaurado limpio.'}
+
+=====================================================================================
+PASO 2: INGESTA DE LAS 6 RESEÐAS EN BASE LIMPIA
+=====================================================================================
+
+--- Ingestando Rese±a 1/6 (TEXT) ---
+Status: 201
+Rese±a ID: f67015d0-770a-4c8a-aafe-93ae02dfff70 | Canal: GOOGLE_MAPS | Tipo: TEXTO
+Texto: "los tacos de res braseada estuvieron increÝbles y el agua de horchata artesanal muy fresca"
+  -> Platillo: 'Tacos de Res Braseada' (64aa03ff-e4f8-4066-85fd-18ef51887f53) | Polaridad: positivo | Atributos: []
+  -> Platillo: 'Agua de Horchata Artesanal' (deeefcd3-453f-401a-bff7-850f73991aad) | Polaridad: positivo | Atributos: ['fresca']
+
+--- Ingestando Rese±a 2/6 (TEXT) ---
+Status: 201
+Rese±a ID: 0848eca7-cb65-4ef3-9cb5-ae031fdb3ad1 | Canal: TRIPADVISOR | Tipo: TEXTO
+Texto: "el ribeye a la parrilla estaba duro y frÝo, una decepci¾n total"
+  -> Platillo: 'Ribeye a la Parrilla' (eed75a61-2c4c-45b0-bb51-14d80b1ab454) | Polaridad: negativo | Atributos: ['dura', 'decepci¾n total', 'frÝa']
+
+--- Ingestando Rese±a 3/6 (TEXT) ---
+Status: 201
+Rese±a ID: 56641763-742e-4bce-b006-c002b1665475 | Canal: FORMULARIO_WEB | Tipo: TEXTO
+Texto: "pedimos ribeye a la parrilla y la carne estaba muy grasosa, no lo recomiendo"
+  -> Platillo: 'Ribeye a la Parrilla' (eed75a61-2c4c-45b0-bb51-14d80b1ab454) | Polaridad: negativo | Atributos: ['grasosa']
+
+--- Ingestando Rese±a 4/6 (TEXT) ---
+Status: 201
+Rese±a ID: e248f374-1f7a-4c77-bbba-92bd2648abd1 | Canal: WHATSAPP | Tipo: TEXTO
+Texto: "el salm¾n al ajillo delicioso y el pastel tres leches es una maravilla de porci¾n grande"
+  -> Platillo: 'Salm¾n al Ajillo' (d347112d-3213-46b9-b2fb-0fe3b71ca357) | Polaridad: positivo | Atributos: []
+  -> Platillo: 'Pastel Tres Leches' (670a8ed1-6398-49c4-85c4-b7069842cefb) | Polaridad: positivo | Atributos: ['porci¾n grande']
+
+--- Ingestando Rese±a 5/6 (TEXT) ---
+Status: 201
+Rese±a ID: 6826d937-7b7c-4bff-99e8-129c8d6eb701 | Canal: GOOGLE_MAPS | Tipo: TEXTO
+Texto: "la sopa azteca estaba frÝa y excesivamente salada, pero el guacamole r·stico sÝ nos gust¾"
+  -> Platillo: 'Sopa Azteca' (012b9b1b-3a06-4c29-9218-75dd9f22c47e) | Polaridad: negativo | Atributos: ['excesivamente salada', 'frÝa']
+  -> Platillo: 'Guacamole R·stico' (6d7714e0-4bb2-4c3b-81f2-8f137c52e2a4) | Polaridad: positivo | Atributos: []
+
+--- Ingestando Rese±a 6/6 (AUDIO) ---
+Status: 201
+Rese±a ID: 96dc2a5e-7e3b-4d83-8ce8-c46fdd440eb2 | Canal: AUDIO_IN_SITU | Tipo: AUDIO
+Texto: "El Salm¾n al Ajillo estaba en su punto y el Pastel Tres Leches delicioso."
+  -> Platillo: 'Salm¾n al Ajillo' (d347112d-3213-46b9-b2fb-0fe3b71ca357) | Polaridad: positivo | Atributos: []
+  -> Platillo: 'Pastel Tres Leches' (670a8ed1-6398-49c4-85c4-b7069842cefb) | Polaridad: positivo | Atributos: []
+
+=====================================================================================
+PASO 3: CONSULTA GET /api/v1/analytics/ranking (WILSON SCORE INTERVAL PURO)
+=====================================================================================
+Status: 200
+{
+  "total_evaluaciones": 10,
+  "top_platillos": [
+    {
+      "platillo_id": "d347112d-3213-46b9-b2fb-0fe3b71ca357",
+      "nombre": "Salm¾n al Ajillo",
+      "categoria": "Pescados / Fuertes",
+      "total_menciones": 2,
+      "positivas": 2,
+      "negativas": 0,
+      "neutrales": 0,
+      "score_ponderado": 0.3424,
+      "tasa_positiva": 1.0,
+      "tasa_negativa": 0.0
+    },
+    {
+      "platillo_id": "670a8ed1-6398-49c4-85c4-b7069842cefb",
+      "nombre": "Pastel Tres Leches",
+      "categoria": "Postres",
+      "total_menciones": 2,
+      "positivas": 2,
+      "negativas": 0,
+      "neutrales": 0,
+      "score_ponderado": 0.3424,
+      "tasa_positiva": 1.0,
+      "tasa_negativa": 0.0
+    },
+    {
+      "platillo_id": "64aa03ff-e4f8-4066-85fd-18ef51887f53",
+      "nombre": "Tacos de Res Braseada",
+      "categoria": "Tacos / Fuertes",
+      "total_menciones": 1,
+      "positivas": 1,
+      "negativas": 0,
+      "neutrales": 0,
+      "score_ponderado": 0.2065,
+      "tasa_positiva": 1.0,
+      "tasa_negativa": 0.0
+    },
+    {
+      "platillo_id": "deeefcd3-453f-401a-bff7-850f73991aad",
+      "nombre": "Agua de Horchata Artesanal",
+      "categoria": "Bebidas",
+      "total_menciones": 1,
+      "positivas": 1,
+      "negativas": 0,
+      "neutrales": 0,
+      "score_ponderado": 0.2065,
+      "tasa_positiva": 1.0,
+      "tasa_negativa": 0.0
+    },
+    {
+      "platillo_id": "6d7714e0-4bb2-4c3b-81f2-8f137c52e2a4",
+      "nombre": "Guacamole R·stico",
+      "categoria": "Entradas",
+      "total_menciones": 1,
+      "positivas": 1,
+      "negativas": 0,
+      "neutrales": 0,
+      "score_ponderado": 0.2065,
+      "tasa_positiva": 1.0,
+      "tasa_negativa": 0.0
+    },
+    {
+      "platillo_id": "eed75a61-2c4c-45b0-bb51-14d80b1ab454",
+      "nombre": "Ribeye a la Parrilla",
+      "categoria": "Cortes",
+      "total_menciones": 2,
+      "positivas": 0,
+      "negativas": 2,
+      "neutrales": 0,
+      "score_ponderado": 0.0,
+      "tasa_positiva": 0.0,
+      "tasa_negativa": 1.0
+    },
+    {
+      "platillo_id": "012b9b1b-3a06-4c29-9218-75dd9f22c47e",
+      "nombre": "Sopa Azteca",
+      "categoria": "Entradas / Sopas",
+      "total_menciones": 1,
+      "positivas": 0,
+      "negativas": 1,
+      "neutrales": 0,
+      "score_ponderado": 0.0,
+      "tasa_positiva": 0.0,
+      "tasa_negativa": 1.0
+    }
+  ],
+  "platillos_en_riesgo": [
+    {
+      "platillo_id": "eed75a61-2c4c-45b0-bb51-14d80b1ab454",
+      "nombre": "Ribeye a la Parrilla",
+      "categoria": "Cortes",
+      "total_menciones": 2,
+      "positivas": 0,
+      "negativas": 2,
+      "neutrales": 0,
+      "score_ponderado": 0.0,
+      "tasa_positiva": 0.0,
+      "tasa_negativa": 1.0
+    },
+    {
+      "platillo_id": "012b9b1b-3a06-4c29-9218-75dd9f22c47e",
+      "nombre": "Sopa Azteca",
+      "categoria": "Entradas / Sopas",
+      "total_menciones": 1,
+      "positivas": 0,
+      "negativas": 1,
+      "neutrales": 0,
+      "score_ponderado": 0.0,
+      "tasa_positiva": 0.0,
+      "tasa_negativa": 1.0
+    }
+  ]
+}
+
+=====================================================================================
+PASO 4: CONSULTA GET /api/v1/analytics/trends?dias=7
+=====================================================================================
+Status: 200
+{
+  "periodo_dias": 7,
+  "fecha_corte": "2026-10-21T06:48:37.414035+00:00",
+  "tendencias_por_platillo": [
+    {
+      "platillo_id": "eed75a61-2c4c-45b0-bb51-14d80b1ab454",
+      "nombre": "Ribeye a la Parrilla",
+      "menciones_periodo_reciente": 2,
+      "score_polaridad_reciente": -1.0,
+      "menciones_periodo_previo": 0,
+      "score_polaridad_previo": null,
+      "cambio_polaridad": null,
+      "tendencia": "SIN_DATOS_PREVIOS",
+      "atributos_destacados": [
+        {
+          "categoria_atributo": "general",
+          "total_menciones": 2,
+          "positivas": 0,
+          "negativas": 2,
+          "neutrales": 0,
+          "ejemplos_valores": [
+            "grasosa",
+            "decepci¾n total"
+          ]
+        },
+        {
+          "categoria_atributo": "textura",
+          "total_menciones": 1,
+          "positivas": 0,
+          "negativas": 1,
+          "neutrales": 0,
+          "ejemplos_valores": [
+            "dura"
+          ]
+        },
+        {
+          "categoria_atributo": "temperatura",
+          "total_menciones": 1,
+          "positivas": 0,
+          "negativas": 1,
+          "neutrales": 0,
+          "ejemplos_valores": [
+            "frÝa"
+          ]
+        }
+      ]
+    },
+    {
+      "platillo_id": "d347112d-3213-46b9-b2fb-0fe3b71ca357",
+      "nombre": "Salm¾n al Ajillo",
+      "menciones_periodo_reciente": 2,
+      "score_polaridad_reciente": 1.0,
+      "menciones_periodo_previo": 0,
+      "score_polaridad_previo": null,
+      "cambio_polaridad": null,
+      "tendencia": "SIN_DATOS_PREVIOS",
+      "atributos_destacados": []
+    },
+    {
+      "platillo_id": "670a8ed1-6398-49c4-85c4-b7069842cefb",
+      "nombre": "Pastel Tres Leches",
+      "menciones_periodo_reciente": 2,
+      "score_polaridad_reciente": 1.0,
+      "menciones_periodo_previo": 0,
+      "score_polaridad_previo": null,
+      "cambio_polaridad": null,
+      "tendencia": "SIN_DATOS_PREVIOS",
+      "atributos_destacados": [
+        {
+          "categoria_atributo": "porcion",
+          "total_menciones": 1,
+          "positivas": 1,
+          "negativas": 0,
+          "neutrales": 0,
+          "ejemplos_valores": [
+            "porci¾n grande"
+          ]
+        }
+      ]
+    },
+    {
+      "platillo_id": "64aa03ff-e4f8-4066-85fd-18ef51887f53",
+      "nombre": "Tacos de Res Braseada",
+      "menciones_periodo_reciente": 1,
+      "score_polaridad_reciente": 1.0,
+      "menciones_periodo_previo": 0,
+      "score_polaridad_previo": null,
+      "cambio_polaridad": null,
+      "tendencia": "SIN_DATOS_PREVIOS",
+      "atributos_destacados": []
+    },
+    {
+      "platillo_id": "deeefcd3-453f-401a-bff7-850f73991aad",
+      "nombre": "Agua de Horchata Artesanal",
+      "menciones_periodo_reciente": 1,
+      "score_polaridad_reciente": 1.0,
+      "menciones_periodo_previo": 0,
+      "score_polaridad_previo": null,
+      "cambio_polaridad": null,
+      "tendencia": "SIN_DATOS_PREVIOS",
+      "atributos_destacados": [
+        {
+          "categoria_atributo": "general",
+          "total_menciones": 1,
+          "positivas": 1,
+          "negativas": 0,
+          "neutrales": 0,
+          "ejemplos_valores": [
+            "fresca"
+          ]
+        }
+      ]
+    },
+    {
+      "platillo_id": "012b9b1b-3a06-4c29-9218-75dd9f22c47e",
+      "nombre": "Sopa Azteca",
+      "menciones_periodo_reciente": 1,
+      "score_polaridad_reciente": -1.0,
+      "menciones_periodo_previo": 0,
+      "score_polaridad_previo": null,
+      "cambio_polaridad": null,
+      "tendencia": "SIN_DATOS_PREVIOS",
+      "atributos_destacados": [
+        {
+          "categoria_atributo": "temperatura",
+          "total_menciones": 1,
+          "positivas": 0,
+          "negativas": 1,
+          "neutrales": 0,
+          "ejemplos_valores": [
+            "frÝa"
+          ]
+        },
+        {
+          "categoria_atributo": "general",
+          "total_menciones": 1,
+          "positivas": 0,
+          "negativas": 1,
+          "neutrales": 0,
+          "ejemplos_valores": [
+            "excesivamente salada"
+          ]
+        }
+      ]
+    },
+    {
+      "platillo_id": "6d7714e0-4bb2-4c3b-81f2-8f137c52e2a4",
+      "nombre": "Guacamole R·stico",
+      "menciones_periodo_reciente": 1,
+      "score_polaridad_reciente": 1.0,
+      "menciones_periodo_previo": 0,
+      "score_polaridad_previo": null,
+      "cambio_polaridad": null,
+      "tendencia": "SIN_DATOS_PREVIOS",
+      "atributos_destacados": []
+    }
+  ],
+  "atributos_mas_mencionados_global": [
+    {
+      "categoria_atributo": "general",
+      "total_menciones": 4,
+      "positivas": 1,
+      "negativas": 3,
+      "neutrales": 0,
+      "ejemplos_valores": [
+        "fresca",
+        "grasosa",
+        "excesivamente salada",
+        "decepci¾n total"
+      ]
+    },
+    {
+      "categoria_atributo": "temperatura",
+      "total_menciones": 2,
+      "positivas": 0,
+      "negativas": 2,
+      "neutrales": 0,
+      "ejemplos_valores": [
+        "frÝa"
+      ]
+    },
+    {
+      "categoria_atributo": "textura",
+      "total_menciones": 1,
+      "positivas": 0,
+      "negativas": 1,
+      "neutrales": 0,
+      "ejemplos_valores": [
+        "dura"
+      ]
+    },
+    {
+      "categoria_atributo": "porcion",
+      "total_menciones": 1,
+      "positivas": 1,
+      "negativas": 0,
+      "neutrales": 0,
+      "ejemplos_valores": [
+        "porci¾n grande"
+      ]
+    }
+  ],
+  "menciones_sin_clasificar": {
+    "total_menciones": 0,
+    "positivas": 0,
+    "negativas": 0,
+    "neutrales": 0,
+    "atributos_asociados": []
+  }
+}

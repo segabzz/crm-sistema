@@ -1,0 +1,70 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Production build & cache
+dist/
+dist-ssr/
+frontend/dist/
+.vite/
+frontend/.vite/
+*.local
+
+# Python
+__pycache__/
+backend/__pycache__/
+.pytest_cache/
+backend/.pytest_cache/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+build/
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Database (local SQLite)
+*.db
+*.db.backup
+*.sqlite
+*.sqlite3
+
+# Environment variables & secrets
+.env
+backend/.env
+frontend/.env
+*.env.local
+*.env.*.local
+!.env.example
+!backend/.env.example
+
+# Audio temporary files / uploads
+backend/storage/audios/*
+!backend/storage/audios/.gitkeep
+
+# IDEs and OS files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
