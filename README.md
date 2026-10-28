@@ -92,16 +92,76 @@ flowchart TD
 
 ## 🚀 Guía de Instalación y Ejecución
 
-### Prerrequisitos
+### Prerrequisitos Generales
 1. **Python 3.11 o 3.12** instalado.
 2. **Node.js v18+ y npm** instalados.
 3. **Ollama** instalado y con el modelo descargado:
    ```bash
    ollama pull llama3.2:latest
    ```
-   > **Nota:** El servicio de Ollama debe estar en ejecución en segundo plano (`http://localhost:11434`, por ejemplo mediante `ollama serve` o el servicio en segundo plano de tu sistema operativo), no en modo chat interactivo.
+   > **Nota:** El servicio de Ollama debe estar en ejecución en segundo plano (`http://localhost:11434`, por ejemplo mediante `ollama serve` o la app de Ollama abierta), no en modo chat interactivo.
 
-### 1. Clonar y Configurar Backend
+---
+
+### 🍎 Instrucciones Específicas para macOS (Apple Silicon M1/M2/M3/M4 & Intel)
+
+#### 1. Herramientas del sistema con Homebrew
+Si utilizas [Homebrew](https://brew.sh), instala las versiones recomendadas de Python, Node.js y FFmpeg (este último asegura compatibilidad total para procesamiento de formatos de audio):
+```bash
+brew install python@3.12 node ffmpeg
+```
+
+#### 2. Configurar Ollama en macOS
+1. Descarga la aplicación nativa para macOS desde [ollama.com/download/mac](https://ollama.com/download/mac) o instálala por Homebrew:
+   ```bash
+   brew install --cask ollama
+   ```
+2. Inicia la app de Ollama (se ejecutará como servicio en la barra de menús de macOS).
+3. Descarga el modelo Llama 3.2:
+   ```bash
+   ollama pull llama3.2:latest
+   ```
+
+#### 3. Configurar Backend (Uso de Entorno Virtual)
+En macOS (especialmente en versiones recientes como Sonoma o Sequoia), Python requiere un entorno virtual para evitar el error `externally-managed-environment`:
+```bash
+# 1. Crear entorno virtual en la raíz del proyecto
+python3 -m venv venv
+
+# 2. Activar entorno virtual
+source venv/bin/activate
+
+# 3. Instalar requerimientos del backend
+pip install -r backend/requirements.txt
+
+# 4. Iniciar el servidor FastAPI (Puerto 8000)
+python3 -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --app-dir backend --reload
+```
+* Documentación Swagger interactiva: `http://127.0.0.1:8000/docs`
+
+#### 4. Configurar y Ejecutar Frontend
+En una segunda terminal:
+```bash
+# 1. Entrar a la carpeta frontend
+cd frontend
+
+# 2. Instalar dependencias
+npm install
+
+# 3. Iniciar servidor Vite (Puerto 5173)
+npm run dev
+```
+* Acceder a la aplicación: **`http://localhost:5173`**
+
+> [!TIP]
+> **Permisos de Micrófono en macOS**: Al probar la grabación por voz en la vista de **Ingesta**, tu navegador (Chrome, Safari, Arc, Brave) solicitará acceso al micrófono. Si no se habilita la grabación, verifica los permisos en:
+> `Ajustes del Sistema > Privacidad y Seguridad > Micrófono` y activa la casilla para tu navegador.
+
+---
+
+### 💻 Instrucciones para Windows / Linux
+
+#### 1. Configurar Backend
 ```bash
 # Instalar dependencias del backend
 pip install -r backend/requirements.txt
@@ -111,7 +171,7 @@ python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --app-dir backend --
 ```
 * Documentación interactiva Swagger: `http://127.0.0.1:8000/docs`
 
-### 2. Configurar y Ejecutar Frontend
+#### 2. Configurar y Ejecutar Frontend
 En una segunda terminal:
 ```bash
 # Entrar a la carpeta frontend
